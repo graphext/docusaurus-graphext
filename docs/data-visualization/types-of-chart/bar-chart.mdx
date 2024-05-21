@@ -1,0 +1,176 @@
+---
+title: Bar Chart
+icon: chart-simple
+---
+
+<Frame caption="Madrid Precipitation • Simple Bar Chart • Graphext Light theme">
+  <iframe
+    src="https://public.graphext.com/e10a8e9d4479bbe9/chart.html"
+    title="Yearly precipitation in Madrid"
+    scrolling="no"
+    frameborder="0"
+    width="800"
+    height="511"
+  ></iframe>
+</Frame>
+
+---
+
+Bar Charts are, arguably, one of the most popular types of chart. They represent relationship
+between variables in a very clearly visual way, allowing to compare the height of
+each bar. This makes it very easy to spot changes in your data.
+
+There are 5 kinds of bar charts available in Graphext:
+
+- Simple Bar Chart
+- Grouped Bar Chart
+- Stacked Bar Chart
+- Stacked Relative Bar Chart
+- Segmented Bar Chart
+
+## Simple Bar Chart
+
+We know how this goes.
+
+A particularly useful, albeit common, use of bar charts is using one axis to measure the number of
+ocurrences in your data. In this example, we count how many of the credit card transactions
+belong to a given category and we plot that number.
+
+<Frame>
+  <iframe
+    src="https://dev-embeds.graphext.com/9942c233a971cd3d/chart.html"
+    title="Number of transactions per category"
+    scrolling="no"
+    frameborder="0"
+    width="800"
+    height="414"
+  ></iframe>
+</Frame>
+
+## Grouped Bar Chart
+
+Grouped bar charts can display all the combinations between the values of two
+variables. This allows for a great way of providing a ton of information at a glance.
+
+We can see in this example that we have a variable "**Overall skill**" which holds the values
+"bad", "mid", "good" and "great", and another variable "**Wage bracket**", which holds the
+values "low", "mid-low", "mid-high" and "high". This chart presents the number of players
+that lie in each of the 16 possible combinations in a very tidy format.
+
+<Frame>
+  <iframe
+    src="https://public.graphext.com/da2a12b2477d5979/chart.html"
+    title="Overall skill in relation to wage"
+    scrolling="no"
+    frameborder="0"
+    width="800"
+    height="511"
+  ></iframe>
+</Frame>
+
+## Stacked Bar Chart
+
+Stacked bar charts share a lot of similarities with grouped bar charts, with the only
+difference that, instead of laying the bars laterally, they are stacked up.
+
+The former is better to distinguish small differences in groups, the latter is
+better suited for a broader perspective on the relatioship between the groups.
+
+<Frame>
+  <iframe
+    src="https://public.graphext.com/31145d48011cc9b1/chart.html"
+    title="Overall skill in relation to wage"
+    scrolling="no"
+    frameborder="0"
+    width="800"
+    height="511"
+  ></iframe>
+</Frame>
+
+## Stacked Relative Bar Chart
+
+The next logical step is, of course, normalizing the values so that they add up to 1.
+
+This gives an even better representation of the relationship in size between each group.
+
+We can see how this vaguely resembles a [stacked area chart](documentation/data-visualization/types-of-chart/area-chart#stacked-relative-area-charts), albeit a
+bit coarser in nature.
+
+<Frame>
+  <iframe
+    src="https://public.graphext.com/f2ee83fdce01a9f0/chart.html"
+    title="Overall skill in relation to wage"
+    scrolling="no"
+    frameborder="0"
+    width="800"
+    height="511"
+  ></iframe>
+</Frame>
+
+## Segmented Bar Chart
+
+Segmented bar charts behave in much the same way as [Segmented Line charts](/documentation/data-visualization/types-of-chart/line-chart#segmented-line-charts) do.
+You get a different plot for each category displayed.
+
+<Frame>
+  <iframe
+    src="https://public.graphext.com/c207c5e9783c7779/chart.html"
+    title="Most players shoot with their right foot"
+    scrolling="no"
+    frameborder="0"
+    width="800"
+    height="511"
+  ></iframe>
+</Frame>
+
+## Customizing Bar Charts
+
+Bar Charts share much of the same functionality with [line](/documentation/data-visualization/types-of-chart/line-chart) and [area](/documentation/data-visualization/types-of-chart/area-chart) charts.
+
+### Bar Gaps
+
+The spacing in between each bar can be customized through the Spacing option.
+
+<Frame>
+  ![Barchart
+  Customization](/images/data-visualization/barchart-customization.webp)
+</Frame>
+
+Adjust the slider to make the bars thinner or larger.
+
+Moreover, the spacing on either side of the chart can also be adjusted, in
+case the proportions play out a bit more nicely.
+
+<Tabs>
+<Tab title="Thinner bars and big lateral gaps">
+    <Frame>
+        <iframe
+            src="https://public.graphext.com/dfca673576ef075d/chart.html"
+            title="Distribution of players based on overall score"
+            scrolling="no"
+            frameborder="0"
+            width="800"
+            height="511"
+        ></iframe>
+    </Frame>
+</Tab>
+
+<Tab title="No space in between bars">
+  <Frame>
+    <iframe
+      src="https://public.graphext.com/c61694c8ebc3aaff/chart.html"
+      title="Distribution of players based on overall score"
+      scrolling="no"
+      frameborder="0"
+      width="800"
+      height="511"
+    ></iframe>
+  </Frame>
+</Tab>
+
+</Tabs>
+
+### Color
+
+Color customization for bar charts works in the same way as line charts. You can
+learn more here: [Customizing color for line charts](/documentation/data-visualization/types-of-chart/line-chart#color).

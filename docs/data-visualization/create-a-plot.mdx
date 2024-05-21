@@ -1,0 +1,71 @@
+---
+title: 'Create plots and charts'
+description: 'Create publish-ready charts in minutes'
+icon: 'chart-simple'
+iconType: 'solid'
+---
+
+## Interface Overview
+
+The chart builder interface is designed to facilitate the creation of various chart types for data visualization. Below is a breakdown of each element present in the interface:
+
+<Frame>![Interface Overview](/images/create-plot/step-1.webp)</Frame>
+
+### 1. Select Variables to Analyze
+
+-   **Search Bar**: Allows you to quickly find and select the variables you wish to analyze. You may type the name of the variable into the search field.
+-   **Add Button (+)**: This button, located on the right side above the chart options, allows you to add additional variables to the analysis.
+
+### 2. Choose a Chart Section
+
+This section provides a gallery of chart types to choose from. Each chart option comes with a representative icon and is selectable to create that specific type of visualization.
+
+Each chart comes with a set of more complete variants. To explore the different variants available for each chart type, simply hover your cursor over the specific chart's card. Each variant is symbolized by a unique icon. For instance, when you hover over the 'Bar Chart', you'll see variants like 'Stacked Bar Chart' or 'Grouped Bar Chart'.
+
+## Two ways of creating a chart
+
+There are two different ways to creating a chart:
+
+-   **Guided**: when you have identified the variables you wish to visualize, but haven't decided on the specific chart type.
+-   **Off-road**: when you have a specific chart type in mind, and the selection of variables to be used will be made subsequently.
+
+### Guided way to create a chart
+
+To begin, locate the input at the top and identify the variable(s) you wish to analyze.
+You can choose to focus on one or multiple variables, with the option to add more using the 'Add Button'.
+
+<video
+  autoPlay
+  muted
+  loop
+  playsInline
+  src="/images/create-plot/guided-way.mp4"
+/>
+
+Upon introducing the variables, Graphext will automatically generate a chart recommendation.
+This is based on several factors such as the type of variables, cardinality, and distinct characteristics (for instance, whether the numbers are discrete or continuous, or if the categories have a predefined order).
+
+These recommendations will be displayed immediately on the cards.
+The most suitable chart variant will be prominently displayed, while the variants
+incompatible with the selected variables will be disabled. Please note that you can determine
+why a specific chart is disabled by simply hovering over it.
+
+Once users have selected their preferred chart, Graphext will proceed to compute the optimal mapping of variables to slots. This relies on a set of heuristics that evaluate all possible configurations. For instance, a simple heuristic might be: a variable of the 'Date' type will perform better on the X-axis than a categorical variable.
+
+### Off road way to create a chart
+
+
+<video autoPlay muted loop playsInline src="/images/create-plot/off-road.mp4" />
+
+
+Using the "Off-road" method is particularly useful when you are well-acquainted with
+the type of chart that best represents your data and the story you want to tell.
+This method can often be faster as it bypasses the variable selection step and goes straight
+to the chart creation, allowing you to shape your data visualization with more direct control
+from the outset.
+
+It is very straightforward. You can select the chart type that best fits
+the visualization you have in mind for your data. Graphext will analyze the variables
+in the the dataset and select those that yield the most legible configuration of the chart.
+It tries to make a chart that's easy to read and understand. You can then directly select
+the variables that are interesting for them in the proper mapping slot.

@@ -1,0 +1,112 @@
+---
+title: Specifying order in categorical variables
+icon: arrow-down-1-9
+---
+
+It is common to have a categorical column whose values have a clear order. This can
+be shirt sizes, like "S", "M", "L" or "XL". The category "L" is _greater_ than "M".
+
+In order to provide with this contextual order to a categorical variable, we must proceed
+using the [Recipe](/concepts/graphext-concepts/recipe) and writing a [step](/concepts/graphext-concepts/steps) for it. Currently, there is no way to do it through
+the interface, though we have plans to add this functionality soon.
+
+## Intro and Resources
+
+To do this, we are going to use the [order_categories](/api-docs/prepare/transform/order_categories) step.
+You can follow [this example](https://app.graphext.com/projects/UHJvamVjdC05ODA3MA==/v/data).
+
+Also, a video tutorial is available to do this exact process in the Titanic Data set.
+You can watch it [here](https://youtu.be/kM9KCq5K2nw?t=239&si=-CG2PA6UVZS8kAAE) in case it makes it easier to follow.
+
+<Frame caption="Sample of the Clothing Size Prediction with ordering applied in the Size column">
+  <iframe
+    className="w-full"
+    frameborder="0"
+    zoom="0.5"
+    height="600"
+    src="https://public.graphext.com/626cee261c078084/index.html"
+  />
+</Frame>
+
+## Open the Recipe
+
+Reach out to the little scroll icon in the top right corner.
+
+<Frame>![Recipe icon](/images/variable-management/recipe-icon.webp)</Frame>
+
+## Enable Code Mode
+
+This will allow us to see and edit the code.
+
+<Frame>
+  ![Code Mode in recipe](/images/variable-management/code-mode-recipe.webp)
+</Frame>
+
+## Search for the order_categories step
+
+Start writing `ord`, and the list will show the `order_categories` step.
+Press enter, tab or click on the suggestion to accept it.
+
+<Frame>
+  ![Order Categories
+  suggestion](/images/variable-management/order-categories-suggestion.webp)
+</Frame>
+
+This operation will write this piece of code on the same line:
+
+```erlang
+order_categories(ds.input) -> (ds.output)
+```
+
+## Edit the step with your column name
+
+Because the column we want to take the information from is called `size` (careful, it's case sensitive!),
+we change the code so it looks like this:
+
+```erlang
+order_categories(ds.size) -> (ds.size)
+```
+
+This gives an error because we are trying to create a column that already exists, `size`. We can either
+create a new column with the ordering applied, or we can **overwrite** the existing column to include
+the ordering information.
+
+To create a new column, simply change the output from size to any other name, for example:
+
+```erlang
+order_categories(ds.size) -> (ds.size_ordered)
+```
+
+To overwrite the colum, we use the overwrite operator, like this:
+
+```erlang
+order_categories(ds.size) => (ds.size)
+                          ^ this changed from - to =
+```
+
+## Apply the ordering
+
+Let's apply the ordering. To do this, edit the step like this:
+
+```erlang
+order_categories(ds.size,
+    {"categories": ["XXL", "XXXL", "L", "M", "S", "XXS"]}
+) => (ds.size)
+```
+
+All we did is create an options object with `{}` that has a field `categories`. This field expects a list
+of categories present in our data, and we pass in the order we want, **bigger/greater first**, and in
+decreasing order.
+
+<Tip>
+  You can basically copy this piece of code and substitute "size" for the name
+  of your column, and the categories list by all the different categories just
+  like here: each in between quote marks and separated by commas.
+</Tip>
+
+## Done!
+
+Now, we click "Run" in the lower right corner to save.
+We can now see that our variable Size has a sorting icon next to it, allowing us to [sort the whole table](/documentation/data-preparation/variable-management-ui-config/sort-data-table).
+
+<Frame>![Size sortable](/images/variable-management/size-sortable.webp)</Frame>

@@ -1,0 +1,129 @@
+---
+title: "Manage projects"
+description: "Understand what projects are and how to handle them"
+icon: "rectangle-history"
+---
+
+A project, is the **fundamental unit for analysis**. Each project is **linked to a dataset** that can originate from various sources. Visually, projects are represented as cards within the hall. Clicking on one of these cards transports you to the analysis area. Typically, it is advisable to dedicate a separate project to each type of analysis, although combining different analyses in a single project can be beneficial under certain circumstances. For instance, you might perform clustering and then use the newly created cluster variable as a predictor in a subsequent predictive model.
+
+Projects are **inherently collaborative**. You can share them with other accounts, allowing multiple users to edit and contribute simultaneously. For instances where editing is not required, projects can be shared with viewers who need access to view the analyses but not modify them.
+
+Projects connected to a data source can **automatically update** when the originating data source is refreshed, ensuring that your analysis remains up to date.
+
+Additionally, several actions can be performed on projects to manage and optimize your workflow effectively. These actions include **renaming, copying, moving projects** to different teams, **removing projects**, or even **starting anew from scratch**. The latter resets the project to its original state, preserving the initial dataset and removing any transformations that have been applied.
+
+## How to create a new project
+
+From the Home page, you can initiate a new project by clicking the prominent blue **"New Project" button**. Alternatively, within each team's interface, the first card displayed is the **"+ New Project" card**, which is also clickable and serves as another gateway to start a new project.
+
+<div>
+  ![](/images/manage-workspace/new_project_1.webp)
+  ![](/images/manage-workspace/new_project_2.webp)
+</div>
+
+Upon selecting either of these options, a dialog window will appear prompting you
+to choose the source of your data. We provide three primary methods for importing
+data into your project:
+
+- **Upload a file**: Directly upload data files from your local storage.
+- **Connect to a data integration**: Utilize connections to a variety of data integrations available on our platform.
+- **Use a data example**: Start with one of our pre-loaded data examples to get a feel for the system or to conduct test analyses.
+
+For more detailed information on these options, please refer to the [Import Data section](/documentation/import-and-export).
+
+Once you have successfully selected and imported a dataset, a new project card will appear in the hall. This card represents your new project, and clicking on it will take you directly to the analysis area, where you can begin exploring and interpreting your data.
+
+## How to share a project with a team member and change role
+
+Facilitates collaboration on the same analysis with numerous users. Depending on your specific needs, you can share projects as either editors or viewers. Editors are granted permissions to contribute to the project actively, while viewers are able to access the project solely for the purpose of consuming insights without making any alterations.
+
+To share a project, simply follow these steps:
+
+<Accordion title="Guided steps" icon="share-nodes">
+  <Steps>
+    <Step title="First Step">
+      Navigate to the project card within the hall and click on the menu to find
+      the **"Share"** option.
+      <Frame>![](/images/manage-workspace/share_project_1.webp)</Frame>
+    </Step>
+    <Step title="Second Step">
+      A window will appear where you can search for and **enter the emails of
+      the users** with whom you want to share the project.
+      <Frame>![](/images/manage-workspace/share_project_2.webp)</Frame>
+    </Step>
+    <Step title="Third Step">
+      If at any point you need to adjust user **permissions or roles**, you can
+      easily manage these settings. Return to the same menu, select the "Share"
+      option again, and you will have the option to modify the roles of existing
+      users or remove them entirely.
+      <Frame>![](/images/manage-workspace/share_project_3.webp)</Frame>
+    </Step>
+  </Steps>
+</Accordion>
+
+## How to refresh a project and add a recurrence
+
+A project linked to an integration, allows the dataset to be updated, with two methods to rerun the analysis on this new data: **manually or automatically**.
+
+- For **manual updates**, you can utilize the **"Refresh Project"** feature. Simply click on the menu of the project card and select "Refresh Project." This action triggers the system to reapply the existing ["recipe"](/concepts/graphext-concepts/recipe) to the updated dataset, ensuring your analysis reflects the latest data.
+  <Frame>![](/images/manage-workspace/refresh_project.webp)</Frame>
+- For **automatic updates**, you can set up a **"Recurrence"** by clicking "Add Recurrence" in the project card menu. This feature automates the execution of the project at a frequency you specify, allowing for hands-off updates and analysis. This can be particularly useful for projects requiring regular data refreshes to maintain accuracy and relevancy over time. You can learn more about setting up and managing recurrences [here](/documentation/import-and-export/update-data). You can always **edit the frequency** or **pause the recurrence**.
+  <Frame>![](/images/manage-workspace/add_recurrence.webp)</Frame>
+
+## How to search, filter and order projects.
+
+### Omnibar
+
+To locate any team or project, regardless of how extensive your list grows, you can use the **omnibar**.
+To access the omninbar you have to options, click on the **search bar at the top** or by using **keyboard shortcuts**. If you are on a Mac, press **Cmd + K**; on Windows, use **Ctrl + K**. This omnibar searches across both teams and projects.
+
+<Frame>![](/images/manage-workspace/search_projects.webp)</Frame>
+### Filter and sorting If you are looking for a specific project, apart from using
+the omnibar for a direct search, you can apply filters and sorting options to organize
+your view more effectively.
+
+- **Filter Projects**: Located at the top right corner, the filtering options allow you to quickly pinpoint projects based on specific criteria. This can include finding projects by their creator, those that use particular integrations, or ones created during a designated period
+
+  <Frame>![](/images/manage-workspace/filter_projects.webp)</Frame>
+
+- **Sort Projects**: Also found at the top right corner, you can sort by the date of creation, project name, number of rows or other relevant metrics.
+  <Frame>![](/images/manage-workspace/sort_projects.webp)</Frame>
+
+## How to rename a project
+
+To rename a project, just navigate to the project card menu and select the **"Rename"** option. Write the name and confirm the new one. Remember that you can use emojis 😉
+
+<Frame>![](/images/manage-workspace/rename_projects.webp)</Frame>
+
+## How to make a copy of a project
+
+To make a copy of a project, simply go to the project card menu and select the **"Make a copy"** option. Choose the desired team from the dropdown menu and confirm your selection.
+
+<Frame>![](/images/manage-workspace/make_a_copy_1.webp)</Frame>
+
+<Warning>
+  Consider the following when the project is connected to an integration
+</Warning>
+When a project linked to an integration is copied, the following scenarios may occur:
+- **If you are an admin in both the originating and destination teams**, we will
+also replicate the integration for the destination team. This newly created integration
+will be independent from the original but will carry over the same query and credentials.
+You can then manage it within the new team. - **If you are not an admin in at least
+one of the teams**, we will only duplicate the project and not the integration, due
+to security reasons. ## How to move a project To move of a project, simply go to
+the project card menu and select the **"Move to"** option. Choose the desired team
+from the dropdown menu and confirm your selection.
+<Frame>![](/images/manage-workspace/move_to_1.webp)</Frame>
+
+<Warning>
+  Consider the following when the project is connected to an integration
+</Warning>
+When a project linked to an integration is copied, the following scenarios may occur:
+- **If you are an admin in both the originating and destination teams**, we will
+also replicate the integration for the destination team. This newly created integration
+will be independent from the original but will carry over the same query and credentials.
+You can then manage it within the new team. - **If you are not an admin in at least
+one of the teams**, we will only move the project and not the integration, due to
+security reasons.
+
+## How to remove a project

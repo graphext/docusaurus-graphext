@@ -1,0 +1,238 @@
+---
+title: "Import data files"
+description: ""
+icon: "file-import"
+---
+
+## Uploading files
+
+In this section, we'll guide you through the process of uploading files to Graphext, a key step in beginning your project. Our platform supports a wide array of file types, ensuring versatility and compatibility with your data needs. Below, you'll find a detailed list of the [supported file formats](#file-formats).
+
+<iframe
+  width="100%"
+  height="449"
+  allow="fullscreen;autoplay"
+  allowfullscreen
+  src="https://streamable.com/e/ozpa54?autoplay=1&nocontrols=1"
+></iframe>
+
+Step-by-Step Guide to Uploading Your Files:
+
+<Steps>
+  <Step title="Start a New Project">
+    Begin by clicking on "Create a New Project". You can do this within your
+    personal team space or in any of your collaborative teams.
+  </Step>
+  <Step title="Select Your File">
+    - **Browse**: Navigate through your computer's directories to find the
+    dataset you wish to use. - **Drag and Drop:** Alternatively, you can drag
+    your file and drop it into the designated importation box on our platform.
+  </Step>
+  <Step title="File Upload and Project Creation">
+    Once you've selected your file, our system will upload the data and
+    automatically, infer the data types if needed and create a new project
+    containing your file. This process ensures your data is ready for
+    exploration and analysis.
+  </Step>
+  <Step title="Open and Explore Your Project">
+    After the upload is complete, your project is ready. You can now open it and
+    start your exploratory journey with Graphext.
+  </Step>
+</Steps>
+
+<iframe
+  src="https://www.loom.com/embed/6ba9bc59141b4d9fa42c075abd3d48ef?sid=f9e7ff71-3f2d-41f9-8271-0e4b3b8b3959?hide_title=true&hide_share=true&hideEmbedTopBar=true&hide_owner=true"
+  width="100%"
+  height="449"
+  frameborder="0"
+  webkitallowfullscreen
+  mozallowfullscreen
+  allowfullscreen
+></iframe>
+
+_Additional Notes_:
+
+- **Uploading Multiple Files with the Same Schema**: If you have several files with the same schema, there's no need to upload them one by one. Simply compress them into a ZIP file and upload it. Our system will seamlessly combine these files into one dataset for you.
+- **Need Help with Complex Data Joins?**: For more intricate requirements, such as specific joins of different datasets, don't hesitate to reach out. Our team is on standby to assist you with any preprocessing needs. [Contact us](mailto:support@graphext.com).
+
+## Supported File Types
+
+Somewhere, in a parallel universe ... there is only one format for data files. Here on Earth, Graphext supports a range of different file types.
+
+In most cases Graphext will inspect the raw data to try and infer the correct data type for each column (categorical, numeric, date etc.). This is not the case for formats that already have well defined column types, such as Apache Arrow (.arr / .arrow), Parquet (.pqt / .parquet), and SPSS (.sav). In these cases, instead of inferring the data types, we simply map them to the Graphext equivalent (e.g. Arrow's dictionary type to Graphext's category type).
+
+### File Formats
+
+<AccordionGroup>
+    <Accordion title="CSV">
+    Extensions: .csv and .tsv
+
+    [CSV](https://en.wikipedia.org/wiki/Comma-separated_values) files (comma-separated values) are delimited text files using commas to separate values. Each line of the file contains a data record, and each record contains one or more fields separated by commas. Graphext expects column names to be listed in the first line of the file. TSV files (.tsv) follow the same formatting rules as CSV files but use the tab character ("\t") to delimit fields.
+    Graphext treats CSV and TSV as equivalent, and will try to infer the delimiter and other details of the format from the file's content. Note that if the file is not formatted correctly, or uses unusual characters as delimiters, or to quote fields containing the delimiter, Graphext may fail to infer the correct format and consequently to read the file correctly. In particular, while Graphext will try to skip initial lines that don't appear to be part of actual tabular data, this cannot be guaranteed to always work correctly, and so we discourage use of such preambles in CSV files.
+    For the curious, CSV files are read using Graphext's open-source [lector](https://github.com/graphext/lector) library, which is documented in some detail [here](https://lector.readthedocs.io/en/latest/).
+    </Accordion>
+    <Accordion title="Excel">
+    Extensions: .xls and .xlsx
+
+    We support both XLS and XLSX files, the most commonly used formats to save Microsoft Excel spreadsheets. These files store data in worksheets containing cells arranged as a grid of rows and columns. Like other file types you can upload these directly to Graphext. In case the file has several sheets, we will import the **first sheet only**.
+    To ensure Graphext reads your data correctly, we recommend that the sheet contain a single table only, that the table start in the first row and first column, and that the first row correspond to the table's column names. If the sheet contains comments, charts or other elements not part of the tabular data, the import may not work as expected.
+    </Accordion>
+    <Accordion title="JSON">
+    Extensions: .json and .jsonl
+
+    [JSON](https://en.wikipedia.org/wiki/JSON) files ("JavaScript Object Notation") are primarily used for transmitting data between web applications and servers. They store data in a format similar to a JavaScript object or Python dictionary. You can upload JSON files directly to Graphext. We support normal JSON files (.json) as well as [line-delimited json](https://jsonlines.org/) files (.jsonl). See below for details about the supported file structures (both row- and column-oriented).
+    Note that we currently do not support the import of nested data. Any column containing nested JSON data will be imported as plain strings. You will nevertheless be able to extract specific fields from nested data using our step "_extract_json_values_" find this step in our [API Docs](/api-docs)
+    </Accordion>
+    <Accordion title="Apache Arrow">
+    Extensions: .arr and .arrow
+
+    You can also upload binary [Apache Arrow](https://arrow.apache.org/) files written in [streaming or random access](https://arrow.apache.org/docs/python/ipc.html) (batch) mode to Graphext. Arrow represents a language-independent columnar memory format for flat and hierarchical data. Using this format allow for very fast imports, since the format is very efficient to read, compact, and doesn't require inference of data types. It is the format Graphext and many other tools, DBs etc. use internally to store their data.
+    As with JSON, we currently do not support the import of nested data. Any column containing nested data will be imported as plain strings. You will nevertheless be able to extract specific fields from nested data using one of our data transformations steps after import ([API Docs](/api-docs)). Other types not currently supported will either be imported as categorical (text), or be represented by a column containing only missing values (to at least preserve the correct number of columns).
+    </Accordion>
+    <Accordion title="Apache Parquet">
+    Extensions: .pqt and .parquet
+
+    [Apache Parquet](https://parquet.apache.org/) is a widely used open source, column-oriented data file format designed for efficient data storage and retrieval. Importing it into Graphext is equivalent to importing Apache Arrow files, offering the same performance benefits (and with same caveats regarding unsupported data types).
+    </Accordion>
+    <Accordion title="SPSS SAV">
+    Extension: .sav
+
+    SAV files are part of the SPSS Statistics File Format or SPSS family. Information in a SAV file is divided into a header, a sequence of tagged 'records' comprising a dictionary for the file and finally the data itself.
+    Note that while we try our best to import such files, SAV is a proprietary format with no official documentation, and as such is not well supported in the greater data ecosystem. If you are able to export your data in another of our supported formats we would recommend that instead.
+    </Accordion>
+    <Accordion title="GML & GraphML">
+    Extensions: .gml and .graphml
+
+    The file formats [Graph Modelling Language](https://en.wikipedia.org/wiki/Graph_Modelling_Language) (.gml), and [GraphML](https://en.wikipedia.org/wiki/GraphML) (.graphml), let you import data already representing a graph or network. They can be exported from tools like [Gephi](https://gephi.org/) or [Cytoscape](https://cytoscape.org/), or libraries such as [igraph](https://igraph.org/) or [NetworkX](https://networkx.org/). We will be able to read those files as long as igraph is able to read them. This means some advanced features, for example hypergraphs or ports, are not supported.
+    </Accordion>
+    <Accordion title="ZIP Archives">
+    Extension: .sav
+
+    Zip files allow you to upload and concatenate multiple dataset files at once. The archive should contain files in any of the supported formats mentioned, and all files should share the same schema (column names and data types). Graphext will concatenate all contained datasets horizontally, i.e. by appending their rows, and so the columns must best consistent across different files.
+    </Accordion>
+
+</AccordionGroup>
+Additionally, Graphext will automatically detect and convert the following list of strings to missing values (equivalent to no value, or and empty cell):
+
+```
+"#N/A", "#N/A N/A", "#NA", "-1.#IND", "-1.#INF", "-1.#QNAN", "-NaN",
+"-nan", "1.#IND", "1.#INF", "1.#INF000000", "1.#QNAN", "<NA>", "N/A",
+"n/a", "NA", "NAN", "NaN", "nan", "NULL", "Null", "null", ""
+```
+
+The conversion will apply only if the whole field corresponds to one of these strings, i.e. if any of these values occurs as a substring inside a longer text, it will be left unchanged.
+
+### Correct File Structures
+
+Text-like file formats, like CSV and JSON, may be subject to specific restrictions on how the data is structured inside the file.
+
+<AccordionGroup>
+    <Accordion title="CSV Correct Structure">
+    While there is no "official" **CSV standard**, most implementations follow some **common rules**. We recommend adhering to the **following guidelines** adapted from the [Internet Engineering Task Force](https://en.wikipedia.org/wiki/Internet_Engineering_Task_Force), which you may also access directly [here](https://datatracker.ietf.org/doc/html/rfc4180#page-2).
+    <Steps>
+    <Step title="First Step">
+        The first line in the file is a header line with the same format as normal record lines. This header contains names corresponding to the fields in the file and should contain the same number of fields as the records in the rest of the file. For example:
+        ```
+        field_1,field_2,field_3
+        aaa,bbb,ccc
+        zzz,yyy,xxx
+        ```
+    </Step>
+    <Step title="Second Step">
+        Each actual data record is located on a **new line**, delimited by a line break.
+    </Step>
+    <Step title="Third Step">
+        The **last record** in the file may or may not have an **ending line break**.
+    </Step>
+    <Step title="Fourth Step">
+        Within the header and each record, there may be one or more fields, separated by commas. Each line should contain the same number of fields throughout the file. Spaces are considered part of a field and will not be ignored. The **last field in the record must not be followed by a comma**. For example:
+        
+        ✅ **GOOD**
+        ```
+        field_1,field_2,field_3
+        aaa,bbb,ccc
+        zzz,yyy,xxx
+        ```
+
+        ❌ **BAD**
+        ```
+        field_1,field_2,field_3
+        aaa,bbb,ccc,
+        zzz,yyy,xxx,
+        ```
+    </Step>
+    <Step title="Fifth Step">
+        Each field may or may not be **enclosed in double quotes**. If fields are not enclosed with double quotes, then double quotes may not appear inside the fields. For example:
+        ```
+        "aaa","bbb","ccc"
+        zzz,yyy,xxx
+        ```
+    </Step>
+
+   <Step title="Sixth Step">
+        Fields containing **line breaks, double quotes, and commas must be enclosed in double-quotes**. For example:
+        ```
+        "aaa","b
+        bb","ccc"
+        zzz,yyy,xxx
+        ```
+    </Step>
+   <Step title="Seventh Step">
+        If double-quotes are used to enclose fields, then a **double-quote appearing inside a field** must be **escaped** by preceding it with another double quote. For example:
+        ```
+        "aaa","He said ""Hi!""","ccc"
+        ```
+    </Step>
+    </Steps>
+    </Accordion>
+    <Accordion title="JSON Correct Structure">
+    We support **three different JSON (JavaScript Object Notation)** formats, which will be detected automatically by inspecting the beginning of a .json file.
+    
+    **Json Lines:**
+
+    In the JSON lines format, each line in the file is a JSON object representing a dataset row. The object in each row contains field names as keys and the corresponding field's value. For example:
+    ```JSON
+    {"field_1": "aaa", "field_2": "bbb", "field_3": "ccc"}
+    {"field_1": "zzz", "field_2": "yyy", "field_3": "xxx"}
+    ```
+    For further details see the official [JSON Lines documentation](https://jsonlines.org/).
+
+     **List of Records:**
+
+     In this format the file contains a JSON list of objects, where each object contains field names and values as **key-value pairs**. For example:
+
+    ```JSON
+    [
+        {"field_1": "aaa", "field_2": "bbb", "field_3": "ccc"},
+        {"field_1": "zzz", "field_2": "yyy", "field_3": "xxx"}
+    ]
+    ```
+    Notice how the first level represents a list, and that objects within this list are separated by a comma. Line breaks and spaces between fields are not required, so the following is an equivalent but more compact format that is equally valid:
+    ```JSON
+    [{"field_1":"aaa","field_2":"bbb","field_3":"ccc"},{"field_1":"zzz","field_2":"yyy","field_3":"xxx"}]
+    ```
+    **Object of Columns:**
+
+    The last supported JSON format is column-oriented. In this format the file contains at the highest level a JSON object. This object has key-value pairs where each key is the name of a field/column, and each value is a JSON list containing `{index: value}` objects. For example:
+    ```
+    {
+    "field_1": {0: "aaa", 1: "zzz"},
+    "field_2": {0: "bbb", 1: "yyy"},
+    "field_3": {0: "ccc", 1: "xxx"}
+    }
+    ```
+    In this format, line breaks and spaces between fields are also ignored, and so the following is equivalent:
+    ```
+    {"field_1":{0:"aaa",1:"zzz"},"field_2":{0:"bbb",1:"yyy"},"field_3":{0:"ccc",1:"xxx"}}
+    ```
+
+    **_A Note on Automatic Detection_**
+
+    As can be seen in the examples, each JSON format is easily identified by inspecting the first few lines of the file. We use the following heuristic:
+
+    1. If the file starts with `[` - assume the List of Records format.
+    2. If the file contains more than 1 line, and each of the first 2 lines starts with `{` and ends with `}` - assume the JSON Lines format.
+    3. In all other cases - assume the Object of Columns format.
+    </Accordion>
+
+</AccordionGroup>

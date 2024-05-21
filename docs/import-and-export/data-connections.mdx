@@ -1,0 +1,26 @@
+---
+title: 'Data Connections'
+description: 'Streamline your workflow and make sure you are always analyzing the data from the source of truth '
+icon: 'database'
+---
+
+If you are working with data stored in a database or hosted somewhere on the cloud, it's often simpler and more efficient to load your data directly into Graphext. By connecting a database or remotely hosted dataset with Graphext, you create a link between your workspace and the source of your data. You only have to integrate a data source with your Graphext workspace once.
+
+Then each time you want to update your project with the latest data, you would [refresh the project](/documentation/import-and-export/update-data). This action will retrieve your data in its most up to date form, meaning that you can start analyzing recent data straight away.
+
+## Available Data Connections
+
+To read more about the connections that we currently support and how to configure them, navigate to our [Integrations](/integrations/data-sources/overview) section
+
+<Frame type="glass">![title](/images/data-sources.webp)</Frame>
+
+## Allow connections from Graphext IP addresses
+
+Numerous data sources are secured behind firewalls, necessitating Graphext's IP addresses to be permitted ('whitelisting') for connection. This typically involves modifying your firewall settings.
+
+Please include the following IP addresses into the data source whitelist to allow Graphext to connect correctly.
+
+```
+34.140.25.149
+34.140.138.132
+```

@@ -1,0 +1,127 @@
+---
+title: Area Chart
+icon: chart-area
+---
+
+<Frame caption="FIFA Players 2022 • Stacked Relative Area chart • FiveThirtyEight theme">
+  <iframe
+    src="https://dev-embeds.graphext.com/ddebca44388feec3/chart.html"
+    title="Overall better players get a better pay"
+    scrolling="no"
+    frameborder="0"
+    width="800"
+    height="511"
+  ></iframe>
+</Frame>
+
+---
+
+Area Charts behave a lot like line charts and bar charts combined. While at first glance
+they can feel quite similar to a curved line chart, they are better suited to show
+differences between distributions of data rather than trend evolution.
+
+For example, in this dataset, we have a list of transactions that can either be
+Income or Expenses.
+
+Making an area chart gives a visual perspective of what the net benefit (income - expenses) is,
+by visually subtracting the blue area to the orange one. Check it out live [here](https://dev-embeds.graphext.com/ef129709dac87e76/index.html?section=data).
+
+<Frame>
+  <iframe
+    src="https://dev-embeds.graphext.com/0f8aa800c7652974/chart.html"
+    title="Amount Earned vs Spent"
+    scrolling="no"
+    frameborder="0"
+    width="800"
+    height="414"
+  ></iframe>
+</Frame>
+
+In Graphext, you have 4 subtypes of line charts to choose from:
+
+- Simple Area Charts
+- Stacked Area Charts
+- Stacked Relative Area Charts
+- Segmented Area Charts
+
+## Simple Area Chart
+
+Old classic area chart, two variables to rule them all.
+
+<Frame>
+  <iframe
+    src="https://dev-embeds.graphext.com/961f0c857d6d6ce0/chart.html"
+    title="Yearly precipitation in Madrid"
+    scrolling="no"
+    frameborder="0"
+    width="800"
+    height="511"
+  ></iframe>
+</Frame>
+
+## Stacked Area Charts
+
+As exposed in the example above, multiple area charts allow for very easy comparison
+of distributions.
+
+<Frame>
+  <iframe
+    src="https://dev-embeds.graphext.com/feb4eb88418d3ef0/chart.html"
+    title="Contribution of temperature over year"
+    scrolling="no"
+    frameborder="0"
+    width="800"
+    height="511"
+  ></iframe>
+</Frame>
+
+## Stacked Relative Area Charts
+
+Staked Relative area charts normalize all their values to add up to 1. This fills the
+whole Y scale, and tells you the percentage each X value occupies out of the total.
+
+This example is the same one as above but now stretched to fill
+the whole 100% range. Now we can appreciate how much each season contributes to the
+overall yearly temperature in relative terms.
+
+<Frame>
+  <iframe
+    src="https://dev-embeds.graphext.com/ff983ede7a7cbfac/chart.html"
+    title="Contribution of seasons to temperature"
+    scrolling="no"
+    frameborder="0"
+    width="800"
+    height="511"
+  ></iframe>
+</Frame>
+
+## Segmented Area Charts
+
+Segmented area charts behave in much the same way as [Segmented Line charts](/documentation/data-visualization/types-of-chart/line-chart#segmented-line-charts) do.
+You get a different plot for each category displayed.
+
+This example is the same as the one in the beginning, but separating each Wage
+bracket into its own little plot.
+
+<Frame>
+  <iframe
+    src="https://public.graphext.com/b34d24e1006be7cb/chart.html"
+    title="Overall better players get a better pay"
+    scrolling="no"
+    frameborder="0"
+    width="800"
+    height="511"
+  ></iframe>
+</Frame>
+
+## Customizing Area Charts
+
+### Color
+
+Color customization for area charts works in the same way as with any chart.
+You can learn more here: [Customizing colors in a chart](/documentation/data-visualization/customizing-charts#colors).
+
+### Interpolation
+
+Interpolation customization for area charts works in the same way as line charts. You can
+learn more here: [Customizing interpolation for line charts](/documentation/data-visualization/types-of-chart/line-chart#interpolation).

@@ -1,0 +1,228 @@
+---
+title: Customizing Charts
+icon: brush
+---
+
+## Customizing your plot
+
+Plots can generally be highly customized. In any plot, click on the Customize button on the top right corner.
+
+<Frame>
+  ![Customize Button](/images/data-visualization/customize-button.webp)
+</Frame>
+
+This will open a menu with a myriad of options to customize your plot.
+
+<Frame>
+  ![Customize Options](/images/data-visualization/customize-options.webp)
+</Frame>
+
+### Filtering
+
+While not immediately obvious, all the [cross filters](/concepts/graphext-concepts/cross-filters) you have currently
+applied will actually show up in your plot, in real time. You can switch
+to the Data tab, hone in to a thin slice of your dataset, and come back to the
+Plot tab and continue editing your chart. All progress will be saved.
+
+<Frame>
+  <video
+    autoPlay
+    playsInline
+    muted
+    loop
+    src="/images/data-visualization/filter-plot.mp4"
+  />
+</Frame>
+
+<Tip>
+  By toggling the Customize button, you can swap between the customize panel and
+  the cross filters panel. This will allow you to filter the data while seeing
+  how the changes affect your chart in real time.
+</Tip>
+<Tip>
+  Going to another tab like Data or Insights will not reset the state in Plot.
+  You can navigate away safely for quick adjustments.
+</Tip>
+
+### Axes configuration
+
+Depending on the nature of the variable used for a given axis and the type of chart you are working
+with, some options will come up to help you shape the data and resulting visualization.
+
+<Frame>
+  ![Axes config general](/images/data-visualization/axes-config-general.webp)
+</Frame>
+
+Let's review some of the common ones:
+
+#### Temporal Axis
+
+<Frame>![Temporal Axis](/images/data-visualization/temporal-axis.webp)</Frame>
+
+If the variable has a time component, the axis configuration will offer some options to aggregate data with
+different "resolutions". The smaller the time unit, the finer the visualization.
+
+Particularly for dates, some semantically sensible options are given, such as grouping for each year,
+week or quarters, among others.
+
+#### Numeric X axis
+
+<Frame>![Numeric Axis](/images/data-visualization/numeric-axis.webp)</Frame>
+
+If the X axis is numeric, binning options are offered based on the extent (minimum and maxium) the column
+has. "Binning" means to break down the whole range of values in intervals, like _chunks_, and then seeing
+how many rows lie in that interval. We can then make aggregations on each of these groups, like counting, averages, medians,
+and such.
+
+#### Numeric Y axis
+
+<Frame>![Numeric Y Axis](/images/data-visualization/numeric-y-axis.webp)</Frame>
+
+If the Y axis is numeric, aggregation options
+
+#### Categorical Axis
+
+If the axis is categorical, we have two options to customize:
+
+We can limit the number of categories and choose only the $n$ "top" or "bottom" values for that category.
+This helps in reducing potential noise for categories that don't have much relevance in your visualization.
+
+<Frame>
+  ![Categorical
+  Axis](/images/data-visualization/categorical-limit-categories.webp)
+</Frame>
+
+We can also sort these categories by some criteria, like the X axis metric, selection, ordinal or alphabetical order.
+
+<Frame>
+  ![Categorical Axis](/images/data-visualization/categorical-sorting.webp)
+
+</Frame>
+
+In general, this behavior is shared across the board, with some notable exceptions, like [Box plots](https://localhost:3000/documentation/data-visualization/types-of-chart/box-plot#axes-configuration).
+All particular cases are discussed in their corresponding page.
+
+### Themes
+
+Themes are color and typography settings that change the look and feel of your chart. We currently
+include 7 themes inspired by the most used tools and their aesthetic decisions:
+
+- Graphext Dark
+- Graphext Light
+- FiveThirtyEight
+- ggplot2
+- Google Charts
+- PowerBI
+- Urban Institute
+
+<Frame>
+  ![Theme Selection](/images/data-visualization/theme-selection.webp)
+</Frame>
+
+Example of a simple chart with all themes applied.
+
+<CardGroup className="gap-3" cols={3}>
+  <Frame>![light](/images/data-visualization/graphext-dark.webp)</Frame>
+  <Frame>![light](/images/data-visualization/graphext-light.webp)</Frame>
+  <Frame>![light](/images/data-visualization/fivethirtyeight.webp)</Frame>
+  <Frame>![light](/images/data-visualization/ggplot.webp)</Frame>
+  <Frame>![light](/images/data-visualization/google.webp)</Frame>
+  <Frame>![light](/images/data-visualization/powerbi.webp)</Frame>
+  <Frame>![light](/images/data-visualization/urbaninstitute.webp)</Frame>
+</CardGroup>
+
+### General Tab
+
+The General tab holds options for changing axis names, scales, customize color segments, spacings and such.
+On top of that, each plot will also display some exclusive options that may only make sense in that type of
+plot.
+
+#### Visualization & Orientation
+
+These options are generally available in multi variable charts, like line, area, and bar charts.
+
+The **Visualization** option allows to include more variables to compare, taking you from a simple bar chart to
+a more rich grouped bar chart or stacked bar chart, for example.
+
+The **Orientation** option allows to swap the X and Y axes to make the chart horizontal or vertical. Horizontal
+charts are useful when the X axis has very long names in each tick.
+
+<Frame>
+  ![Visualization/Orientation](/images/data-visualization/viz-orientation-options.webp)
+</Frame>
+
+#### Axes Scale and Title
+
+Axes customization of titles and scales are also generally available, where it applies. You can customize
+the Y scale, and titles for each axis. If available, the color display name will change the title above the
+legend for the colors.
+
+<Frame>
+  ![Axes Customization
+  Options](/images/data-visualization/axes-customization-options.webp)
+</Frame>
+
+#### Colors
+
+When available, you can customize the color of each segment and even change the order in which they appear.
+
+<Frame>
+  <video
+    autoPlay
+    playsInline
+    muted
+    loop
+    src="/images/data-visualization/customizing-color.mp4"
+  />
+</Frame>
+
+### Layout tab
+
+The Layout tab remains mostly the same in every chart type. Here you can change the size and proportions
+of the _canvas_ the chart is over.
+
+You can also add a title, a subtitle, a description and a footer to your chart, essential when publishing
+anywhere.
+
+<Frame>![Layout Tab](/images/data-visualization/layout-tab.webp)</Frame>
+
+### Annotations tab
+
+The Annotations tab allows you to add little pieces of information, like value labels and statistic marks.
+
+This tab and the behavior of the marks will change depending on the orientation and nature of your chart.
+
+<Frame>
+  ![Annotations tab](/images/data-visualization/annotations-tab.webp)
+</Frame>
+
+#### Statistics
+
+Statistics marks are presented as a line that crosses through the independent axis at the point they represent.
+
+They are useful to gain perspective of that the distribution of your data is.
+
+#### Show Labels
+
+Enables the value for each segment present in your chart. You can change the formatting and positioning.
+
+#### Text Annotations
+
+You may also add arbitrary text annotations wherever you want in the independent axis.
+
+<Frame>
+  <video
+    autoPlay
+    playsInline
+    muted
+    loop
+    src="/images/data-visualization/adding-annotations.mp4"
+  />
+</Frame>
+
+## Specific options
+
+As previously mentioned, there are some specific customization options to each chart. For example, only the
+bubble chart has the option to scale up or down the size of each data point.
+
+You may check the specific options for each chart under their corresponding page.

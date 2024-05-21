@@ -1,0 +1,24 @@
+---
+title: "Group Similar Semantics"
+description: "Group together words with similar meanings"
+icon: "messages"
+---
+
+This function allows us to merge together words that mean the same. We are
+talking cases like "trainers" and "sneakers", but many other cases may apply.
+This helps boiling down the main message to its core, making it clearer and
+more useful for models and/or other purposes.
+
+:::note
+
+Check out the
+[merge_similar_semantics](/api-docs/prepare/transform/merge_similar_semantics)
+step for more information.
+
+:::
+
+## Parameters
+
+- **Column**: the column to search and group terms in
+- **Determine Language**: specify the language of your terms. You can either set it manually, or select a column that holds the value for each row's language.
+- **Strength Threshold**: a factor in the $[0,1]$ range to make the algorithm more or less sensitive. A value of 1 will merge all ocurrences, while a value closer to 0 will search for stronger correlation between the terms, thus being much more strict with the merging.

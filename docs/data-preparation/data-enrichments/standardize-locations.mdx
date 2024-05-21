@@ -1,0 +1,21 @@
+---
+title: "Standardize Locations"
+description: "Group texts that refer to the same places"
+icon: "map-location-dot"
+---
+
+This function allows us to merge excerpts that refer to the same
+place. This is useful when dealing with neighbourhoods or cities,
+that can be mentioned in many different ways.
+
+:::note
+  This step really just calls the
+  [merge_similar_spellings](/api-docs/prepare/transform/merge_similar_spellings)
+  step with some predefined parameters for convenience. Check it out if you need
+  more information.
+:::
+
+## Parameters
+
+- **Column**: column to standardize
+- **Strength Threshold**: a factor in the $[0,1]$ range to make the algorithm more or less sensitive. A value of 1 will merge all ocurrences, while a value closer to 0 will search for stronger correlation between the terms, thus being much more strict with the merging.

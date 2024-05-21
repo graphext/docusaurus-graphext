@@ -1,0 +1,19 @@
+---
+title: "Upsample Survey Data"
+description: "Adjust the influence of individuals in your survey using a variable with predefined weights to scale your survey data."
+icon: "ballot-check"
+---
+
+Upsampling surveys is usually a good practice when there might be under (or over) represented
+groups in your data. By using a scaling factor, we can adjust the influence each individual
+has in the hopes of better representing the actual distribution, had we sampled indefinitely.
+
+:::note
+  Check out the [upsample](/api-docs/prepare/filter/upsample) step for more
+  information.
+:::
+
+## Parameters
+
+- **Weights**: numeric column with weights representing by how much this particular row's influence should be scaled
+- **Minimum number of rows**: number of rows you need to have in your dataset to ensure that the weighted representation accurately reflects the population, even considering the least influential respondent

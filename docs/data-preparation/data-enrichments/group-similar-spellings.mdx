@@ -1,0 +1,24 @@
+---
+title: "Group Similar Spellings"
+description: "Group together similarly written words that may be spelled inconsistently"
+icon: "spell-check"
+---
+
+This transformation is useful when, for example, you have freeform text in a survey,
+where people will refer to the same concept in many different ways.
+This helps clean and tidy your data by providing a consistent representation of each concept.
+
+:::note
+  Check out the
+  [merge_similar_spellings](/api-docs/prepare/transform/merge_similar_spellings)
+  step for more information.
+:::
+
+## Parameters
+
+- **Column**: the column to search and group terms in
+- **Strength threshold**: a factor in the $[0, 1]$ range to make the algorithm more or less sensitive. A value of 1 will merge all ocurrences, while a value closer to 0 will search for stronger correlation between the terms, thus being much more strict with the merging.
+
+Let $f\colon[a,b]\to\R$ be Riemann integrable. Let $F\colon[a,b]\to\R$ be
+$F(x)=\int_{a}^{x} f(t)\,dt$. Then $F$ is continuous, and at all $x$ such that
+$f$ is continuous at $x$, $F$ is differentiable at $x$ with $F'(x)=f(x)$.

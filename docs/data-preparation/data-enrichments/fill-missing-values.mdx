@@ -1,0 +1,26 @@
+---
+title: "Fill Missing Values"
+description: "Use a function to fill missing values"
+icon: "braille"
+---
+
+This function allows to fill with some value those rows in which there was no data to begin with.
+
+:::info
+
+Check out the [replace_missing](/api-docs/prepare/transform/replace_missing)
+step for more information.
+
+:::
+
+## Parameters
+
+- **Column** to fill values in
+- **Method** to use
+  - **Constant value**: use a constant value throughout the whole column
+  - **Least frequent value**: fill with the least frequent value of the column
+  - **Most frequent value**: fill with the most frequent value of the column
+  - **First value in alphabetical order**: fill with the first value of the column in alphabetical order
+  - **Last value in alphabetical order**: fill with the last value of the column in alphabetical order
+  - **Next valid observation**: fill with the same value that the next non-null row has
+  - **Previous valid observation**: fill with the same value that the previous non-null row has

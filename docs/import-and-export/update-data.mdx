@@ -1,0 +1,66 @@
+---
+title: "Update your data recurrently"
+description: "Setting up Graphext to update your data on a periodic basis"
+icon: "repeat"
+---
+
+When dealing with data that comes from a given [integration](/integrations/data-sources/overview),
+you can tell Graphext to update it recurrently, so you can
+have the latest version always available and ready to be analyzed.
+
+<Warning>
+  This won't work on data that comes from a file for obvious reasons.
+</Warning>
+
+Doing this is very easy:
+
+<Steps>
+  <Step title="Create a proyect using an integration">
+    [Set your project up](/documentation/import-and-export/data-connections) as usual, connecting your preferred integration.
+  </Step>
+
+  <Step title="Enable recurrence">
+    On the top right corner there should be a little cloud icon. Click on it to open the dropdown. At the very bottom, you can see **Recurrence: Not scheduled**. Click and continue.
+
+    <Frame>
+    ![Recurrence](/images/recurrence.webp)
+    </Frame>
+
+  </Step>
+
+  <Step title="Set up your preferred timing">
+
+    This menu will pop up, prompting you for some settings.
+
+    <Frame>
+    ![Recurrence menu](/images/recurrence-menu.webp)
+    </Frame>
+
+    You can set up:
+    - **Type of recurrence**
+      - **Refresh**: will overwrite your last dataset with the new one
+      - **Refresh & Backup**: will save each version of your data as a snapshot
+
+    - **Recurrence pattern**: Define how much time will span in between updates
+
+
+      When configuring a weekly, monthly or anual pattern, the beginning of the period
+      starts at:
+        - Weekly: every Monday
+        - Monthly: every first day of the following month
+        - Anually: every first day of the following year
+
+      For hourly, daily and weekdays, the pattern just depends on the time. Weekdays will update the data
+      every day except for Saturdays and Sundays.
+
+
+    - **Time Zone**: you may select a different time zone if that is of your convenience
+    - **Time**: exactly at what point in the period should the data be updated
+
+
+    The **Next run** row will display when the pattern was first created, when was the last
+    time it was updated, and when is the next update scheduled. This information will be
+    populated upon saving your settings.
+
+  </Step>
+</Steps>
